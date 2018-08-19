@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+  
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>Adayinthelife.html</title>
+  
+
+  
+  <script type="text/javascript">
+<!--
+// Clock function definition
+function startclock()
+{
+var thetime=new Date();
+var nhours=thetime.getHours();
+var nmins=thetime.getMinutes();
+var nsecn=thetime.getSeconds();
+var AorP=" ";
+if (nhours>=12)
+    AorP="P.M.";
+else
+    AorP="A.M.";
+if (nhours>=13)
+    nhours-=12;
+if (nhours==0)
+ nhours=12;
+if (nsecn<10)
+ nsecn="0"+nsecn;
+if (nmins<10)
+ nmins="0"+nmins;
+document.forms.clockform.clockspot.value=nhours+": "+nmins+": "+nsecn+" "+AorP;
+setTimeout('startclock()',1000);
+}
+//-->
+  </script></head><body style="background-color: rgb(188, 104, 129); color: rgb(0, 0, 0);" alink="#ee0000" link="#0000ee" vlink="#551a8b">
+<form action="#" id="clockform" name="clockform">
+<div>
+Current Time: <input id="clockspot" name="clockspot" size="15" type="text">
+</div>
+</form>
+
+Above: NYC local time
+<script type="text/javascript">
+<!--
+// Clock action code
+startclock();
+//-->
+</script>
+<big style="font-weight: bold;"><big><small><small><br>
+<br>
+<br>
+</small></small>Life in Manhattan</big></big><br>
+<br>
+<span style="font-weight: bold;"><small>There Is definitely no place
+like New York. Here in the big apple, there are plenty of things to do
+and places to see. With a massively diverse population and one of the
+most densely populated areas in the world, NYC is always busy.<br>
+<br>
+<img style="width: 389px; height: 220px;" alt="Manhattan" src="http://www.midtownhotelnyc.com/resourcefiles/homeimages/hilton-garden-inn-new-york-manhattan-midtown-east-home1-top.jpg"><br>
+<br>
+Some things to do:<br>
+Check out the Empire State Building!<br>
+<br>
+Go see a hockey game at Madison Square Garden!<br>
+<br>
+Visit one of the hundreds of public parks!<br>
+<br>
+One World Trade Center Observatory!<br>
+<br>
+Kayak on the Hudson River!<br>
+<br>
+Ride a bicycle around town!<br>
+<br>
+</small></span><br>
+<br>
+<a href="Index.html">Home</a><br>
+<br>
+<h2> Disclaimer</h2>
+
+The Faculty and Student
+home pages on this server are not publications of Fordham University.  Their
+content is the responsibility of the individuals who created them.
+Any comments or criticisms should be sent directly to the author of
+the page.
+
+<br>
+
+<br>
+</body></html>
