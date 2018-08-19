@@ -7,7 +7,6 @@
  *
  */
 
-
 #include <iostream>
 
 using namespace std;
@@ -23,13 +22,14 @@ char winner = '*'; //a sentinel value for winner, if not X or O
 int board[Crow][Ccol] = { {1,2,3}, {4,5,6}, {7,8,9} }; //displays position values
 char box[Crow][Ccol] = { {' ',' ',' '}, {' ',' ',' '}, {' ',' ',' '} }; //a cleared board, only spaces
 
-main () {
+//functions which are used in primary function (more functions are embedded in these functions)
+bool winStatus();
+char checkWin(const char &);
+void displayBoard(), makeMove(), updateBoard(), clearBoard();
 
-	bool resp = false;//replay variable for outer do... while loop
-	
-	//functions which are used in primary function (more functions are embedded in these functions) 
-	bool winStatus(), checkWin(const char &);
-	void displayBoard(), makeMove(), updateBoard(), clearBoard();
+int main () {
+
+	bool resp = false; //replay variable for outer do... while loop
 
 	//begin program
 	cout<<"Welcome to Tic Tac Toe, Let's Play!\n";
@@ -41,9 +41,10 @@ main () {
 		clearBoard(); //clear the board
 
 		displayBoard(); //display board using numbers 1-9 for positions
-	
-		do {
-			makeMove(); //player turn
+
+    int draw = 0; // draw variable
+    do {
+      makeMove(); //player turn
 		
 			updateBoard(); //input X or O onto cleared board
 	
@@ -51,18 +52,19 @@ main () {
 		
 			if (winner != playerX) //if X is not winner, O may be winner
 				winner = checkWin(playerO);
-	
-		}while (winner == '*'); //if checkWin function returns sentinel, continue playing
-	
-		resp = winStatus(); //after win, display stats and ask to play again
+      
+      draw++;
+
+    } while (winner == '*' && draw < 9); //if checkWin function returns sentinel, continue playing
+
+    resp = winStatus(); //after win, display stats and ask to play again
 
 	}while(resp);
 	
 
 	cout<<"Thanks for playing!! Happy Holidays!\n";
 	
-}//main close
-
+} // main close
 
 //valid move is used in the makeMove function
 //checks for the range of 1-9, as well as if the position is empty
@@ -288,7 +290,10 @@ bool winStatus() {
 		cout<<"Player2 ('O') has won!\n";
 		player2win++;
 	}
-	//displayed the stored win statistics
+  else {
+    cout << "Draw!\n";
+  }
+  //displayed the stored win statistics
 	cout<<"The score is:\n\tPlayer1: "<<player1win<<endl
 	<<"\tPlayer2: "<<player2win<<endl<<endl;
 	
